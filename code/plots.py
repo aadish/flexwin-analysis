@@ -25,6 +25,8 @@ Sorted_C0 = sorted(C0)
 Sorted_C1 = sorted(C1)
 Sorted_C2 = sorted(C2)
 
+print Sorted_C1
+
 false_negative_C0 = [i[0] for i in Sorted_C0]
 false_positive_C0 = [i[1] for i in Sorted_C0]
 
@@ -42,4 +44,5 @@ pyplot.legend(handles = [line0, line1, line2])
 pyplot.xlabel('False Negative')
 pyplot.ylabel('False Positive')
 pyplot.title('False Negative vs False Positive')
-pyplot.show()
+pyplot.savefig('T006_T030_FalseNegative_FalsePositive') 
+#pyplot.show()
