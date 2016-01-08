@@ -12,6 +12,7 @@ for row in ws.iter_rows(row_offset=1):
 C0 = [(content[0][4], content[0][2])]
 C1 = [(content[0][4], content[0][2])]
 C2 = [(content[0][4], content[0][2])]
+C3a = [(content[0][4], content[0][2])]
 
 for i in content[1:]:
     if i[0].split('=')[0] == 'C0':
@@ -20,10 +21,13 @@ for i in content[1:]:
         C1.append( (i[4], i[2]) )
     if i[0].split('=')[0] == 'C2':
         C2.append( (i[4], i[2]) )
+    if i[0].split('=')[0] == 'C3a':
+        C3a.append( (i[4], i[2]) )
 
 Sorted_C0 = sorted(C0)
 Sorted_C1 = sorted(C1)
 Sorted_C2 = sorted(C2)
+Sorted_C3a = sorted(C3a)
 
 print Sorted_C1
 
@@ -36,11 +40,15 @@ false_positive_C1 = [i[1] for i in Sorted_C1]
 false_negative_C2 = [i[0] for i in Sorted_C2]
 false_positive_C2 = [i[1] for i in Sorted_C2]
 
+false_negative_C3a = [i[0] for i in Sorted_C3a]
+false_positive_C3a = [i[1] for i in Sorted_C3a]
 
-line0, = pyplot.plot(false_negative_C0, false_positive_C0, label='C0')
-line1, = pyplot.plot(false_negative_C1, false_positive_C1, label='C1')
-line2, = pyplot.plot(false_negative_C2, false_positive_C2, label='C2')
-pyplot.legend(handles = [line0, line1, line2])
+
+line0, = pyplot.plot(false_negative_C0, false_positive_C0, label='C 0')
+line1, = pyplot.plot(false_negative_C1, false_positive_C1, label='C 1')
+line2, = pyplot.plot(false_negative_C2, false_positive_C2, label='C 2')
+line3, = pyplot.plot(false_negative_C3a, false_positive_C3a, label='C 3a')
+pyplot.legend(handles = [line0, line1, line2, line3])
 pyplot.xlabel('False Negative')
 pyplot.ylabel('False Positive')
 pyplot.title('False Negative vs False Positive')

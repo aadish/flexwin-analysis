@@ -20,7 +20,7 @@ def parsefile(read_obj, output_file_name, writer):
             list.append(float(temp[7]))
             writer.writerow(list)
 
-write_file = open('windows_before_C2_1.0.csv', 'wb')
+write_file = open('windows_before_C1_4.0.csv', 'wb')
 #write_file_curated = open('curated_parsed.csv', 'wb')
 writer = csv.writer(write_file)
 #curated_writer = csv.writer(write_file_curated)
